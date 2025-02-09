@@ -75,26 +75,9 @@ public class PaypalController {
 		}
 
 
-        return new RedirectView("/error");
+        return new RedirectView("error");
 	}
-	
-	@PostMapping("execute")
-	public ResponseEntity<?> executePayment(@RequestParam("paymentId") String paymentId, @RequestParam("PayerID") String payerId ){
-		try {
-			Payment payment = paypalService.executePayment(paymentId, payerId);;
-			
-			if(payment.getState().equals("approved")) {
-				return ResponseEntity.status(HttpStatus.CREATED).body(String.format("Payment sent successfully: %s Payer: %s", payment.getId(), payerId));
-			}
-
-			return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(String.format("Payment failed while processing: %s Payer: %s", payment.getId(), payerId));
-			
-		}catch (Exception e) {
-			log.error(e.getMessage());
-			return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(String.format("Payment failed: %s", e.getMessage()));
-		}
-	}
-	
+		
 	@GetMapping("success")
     public String paymentSuccess(
             @RequestParam("paymentId") String paymentId,

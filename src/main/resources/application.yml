@@ -13,4 +13,4 @@ app:
 paypal:
   client-id: "AR_xpTxbF1110cfkVeIbDdkWvs8XwS4gPbLjaI4dM3Gau1Rg4XgC8edrojydVnYd9j8BUOEoez-bqtpX"
   client-secret: "ENlexv3w98WBCwzUpo_i_ksEiiVQCgvvupdbi0B8HPc6N4kE1HJedv4du41gKeML2x6dwfbfcwvo94dw"
-  client-mode: sandbox    
+  client-mode: sandbox #sandbox test environment & live for prod enviroment    
